@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="P0xxx.h" />
+    <ClInclude Include="P1xxx.h" />
     <ClInclude Include="P2xxx.h" />
     <ClInclude Include="P3xxx.h" />
     <ClInclude Include="Solution.h" />

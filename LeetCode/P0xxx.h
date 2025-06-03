@@ -2,7 +2,35 @@
 #include "Solution.h"
 #include "DataParser.h"
 
-class P0909 {
+class P0135 : Solution {
+private:
+    int candy(vector<int>& ratings) {
+        int n = ratings.size();
+        vector<int> minArr(n, 1);
+        for (int i = 1; i < n; ++i) {
+            if (ratings[i] > ratings[i - 1]) {
+                minArr[i] = minArr[i - 1] + 1;
+            }
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            if (ratings[i] > ratings[i + 1]) {
+                minArr[i] = max(minArr[i], minArr[i + 1] + 1);
+            }
+        }
+        int res = 0;
+        for (const int& num : minArr) {
+            res += num;
+        }
+        return res;
+    }
+public:
+    void run() {
+        vector<int> ratings = DataParser::parseIntArray("[1,3,4,5,2]");
+        cout << candy(ratings);
+    }
+};
+
+class P0909 : Solution {
 private:
     int snakesAndLadders(vector<vector<int>>& board) {
         int n = board.size();
